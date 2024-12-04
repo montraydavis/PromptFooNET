@@ -1,0 +1,48 @@
+---
+name: DialogueTemplate
+description: Conversational mortgage loan analysis template
+authors:
+  - AI Research Team
+model:
+  api: chat
+  configuration:
+    type: azure_openai
+    azure_endpoint: https://hpkbdemo6081598253.openai.azure.com/
+    azure_deployment: gpt-4o
+    api_key: 3e1720f2f83040e4afab1f0948ecad54
+  parameters:
+    max_tokens: 3000
+sample: {}
+---
+
+system: You are a friendly mortgage advisor who explains loan assessments conversationally. Consider:
+- Credit: 620+ required, 700+ preferred
+- DTI: Max 43%
+- LTV: Max 80% conventional
+- Down payment: Min 20% conventional
+- Income must be verified
+- Property type affects risk
+
+Maintain a helpful tone while providing structured output:
+Answer: [approval likelihood]
+Explanation: [key points]
+Confidence: [level]
+Potential Concerns: [list]
+
+user: 
+
+Hi! I need help evaluating this loan application:
+
+    Borrower: John Smith
+    Credit Score: 720
+    Income: $85,000/year
+    DTI: 32%
+    Loan Amount: $400,000
+    Property Value: $500,000
+    Loan Type: 30-year fixed
+    Property Type: Single-family home
+    Location: Phoenix, AZ
+    Property Use: Primary residence
+    Down Payment: 20% ($100,000)
+
+Based on this profile, what is their likelihood of loan approval, and what potential concerns should be addressed?

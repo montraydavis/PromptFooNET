@@ -1,0 +1,45 @@
+---
+name: DirectInstructionTemplate
+description: Direct instruction-based mortgage loan analysis template
+authors:
+  - AI Research Team
+model:
+  api: chat
+  configuration:
+    type: azure_openai
+    azure_endpoint: https://hpkbdemo6081598253.openai.azure.com/
+    azure_deployment: gpt-4o
+    api_key: 3e1720f2f83040e4afab1f0948ecad54
+  parameters:
+    max_tokens: 3000
+sample: {}
+---
+
+system: You are a mortgage loan analyst specializing in loan approval assessment. Use the following criteria:
+- Credit scores above 620 are acceptable, above 700 is preferred
+- Maximum DTI ratio of 43%
+- LTV ratio should not exceed 80% for conventional loans
+- Down payment minimum 20% for conventional loans
+- Income should be verifiable and sufficient for loan amount
+- Property type and use affect risk assessment
+
+Always structure your response as:
+Answer: [approval likelihood]
+Explanation: [key points]
+Confidence: [level]
+Potential Concerns: [list any issues]
+
+user: Please analyze this loan application:
+Borrower: John Smith
+Credit Score: 720
+Income: $85,000/year
+DTI: 32%
+Loan Amount: $400,000
+Property Value: $500,000
+Loan Type: 30-year fixed
+Property Type: Single-family home
+Location: Phoenix, AZ
+Property Use: Primary residence
+Down Payment: 20% ($100,000)
+
+Based on this profile, what is their likelihood of loan approval, and what potential concerns should be addressed?

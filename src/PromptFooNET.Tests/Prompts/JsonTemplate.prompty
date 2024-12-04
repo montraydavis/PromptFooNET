@@ -1,0 +1,49 @@
+---
+name: JSONTemplate
+description: JSON-structured mortgage loan analysis template
+authors:
+  - AI Research Team
+model:
+  api: chat
+  configuration:
+    type: azure_openai
+    azure_endpoint: https://hpkbdemo6081598253.openai.azure.com/
+    azure_deployment: gpt-4o
+    api_key: 3e1720f2f83040e4afab1f0948ecad54
+  parameters:
+    max_tokens: 3000
+sample: {}
+---
+
+system: You are an automated loan evaluation system. Apply these criteria:
+- Minimum credit score: 620 (700+ preferred)
+- Maximum DTI: 43%
+- Maximum LTV: 80% conventional
+- Minimum down payment: 20% conventional
+- Income verification required
+- Property type risk factors
+
+Generate response in strict JSON format with these keys:
+{
+  "answer": "approval likelihood assessment",
+  "explanation": ["array of key points"],
+  "confidence": "level",
+  "potential_concerns": ["array of issues"]
+}
+
+user: Process loan application data:
+{
+  "borrower": "John Smith",
+  "credit_score": 720,
+  "annual_income": 85000,
+  "dti_ratio": 32,
+  "loan_amount": 400000,
+  "property_value": 500000,
+  "loan_type": "30-year fixed",
+  "property_type": "Single-family home",
+  "location": "Phoenix, AZ",
+  "property_use": "Primary residence",
+  "down_payment": 100000
+}
+
+Based on this profile, what is their likelihood of loan approval, and what potential concerns should be addressed?
